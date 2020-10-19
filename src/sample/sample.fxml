@@ -3,15 +3,18 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<GridPane alignment="center" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane alignment="center" hgap="10" prefHeight="424.0" prefWidth="700.0" vgap="10" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
    <children>
-      <Pane prefHeight="400.0" prefWidth="700.0">
+      <Pane prefHeight="425.0" prefWidth="700.0">
          <children>
-            <Button fx:id="sendButton" layoutX="476.0" layoutY="355.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Send" />
-            <ListView fx:id="users" layoutX="476.0" layoutY="22.0" prefHeight="307.0" prefWidth="205.0" />
-            <ListView fx:id="chat" layoutX="14.0" layoutY="22.0" prefHeight="307.0" prefWidth="449.0" />
-            <TextField fx:id="input" layoutX="14.0" layoutY="349.0" prefHeight="36.0" prefWidth="449.0" />
-            <Button fx:id="backButton" layoutX="640.0" layoutY="355.0" mnemonicParsing="false" text="Back" />
+            <Button fx:id="sendButton" layoutX="476.0" layoutY="378.0" mnemonicParsing="false" onAction="#verzendBericht" prefHeight="25.0" prefWidth="66.0" text="Send" />
+            <ListView fx:id="users" layoutX="476.0" layoutY="56.0" prefHeight="307.0" prefWidth="205.0" />
+            <ListView fx:id="chat" layoutX="14.0" layoutY="56.0" prefHeight="307.0" prefWidth="449.0" />
+            <TextField fx:id="bericht" layoutX="14.0" layoutY="372.0" prefHeight="36.0" prefWidth="449.0" />
+            <Button fx:id="backButton" layoutX="603.0" layoutY="378.0" mnemonicParsing="false" text="Back" />
+            <TextField fx:id="usernameInput" layoutX="86.0" layoutY="21.0" prefHeight="25.0" prefWidth="168.0" />
+            <Label layoutX="14.0" layoutY="25.0" text="Username:" />
+            <Button fx:id="usernameButton" layoutX="266.0" layoutY="21.0" mnemonicParsing="false" onAction="#setUsername" text="Create username" />
          </children></Pane>
    </children>
    <columnConstraints>

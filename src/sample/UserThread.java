@@ -17,14 +17,18 @@ public class UserThread extends Thread {
         try {
             InputStream input = socket.getInputStream();
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
+            Controller controller = new Controller();
 
             OutputStream output = socket.getOutputStream();
             writer = new PrintWriter(output, true);
 
             printUsers();
 
-            String userName = reader.readLine();
+            //String userName = reader.readLine();
+            String userName = controller.getUsername();
             server.addUserName(userName);
+
+            System.out.println(userName);
 
             String serverMessage = "New user connected: " + userName;
             server.broadcast(serverMessage, this);
@@ -44,9 +48,8 @@ public class UserThread extends Thread {
             serverMessage = userName + " has quitted.";
             server.broadcast(serverMessage, this);
 
-        } catch (IOException ex) {
-            System.out.println("Error in UserThread: " + ex.getMessage());
-            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

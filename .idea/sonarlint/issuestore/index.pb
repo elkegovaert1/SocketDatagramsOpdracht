@@ -9,5 +9,11 @@ F
 src/sample/Server.java,3\c\3c89cb1c824c81088a497ff3500d87e9c3bde4fa
 F
 src/sample/Client.java,3\c\3c97e3c36b572d6b36bec7c998a6bd291a68e340
-?
-src/Thread.java,2\b\2bd066e9beafd958c72a55508bf1ebbf254fb71e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+J
+src/sample/UserThread.java,a\3\a3ce58395b519d39d4e3e4ea20d2da12b35e724f
+K
+src/sample/WriteThread.java,c\2\c23afbd61ef4ef0a975571475e63ef6bab692120
+J
+src/sample/ReadThread.java,b\3\b370b171feb311574f77cd358020b21a50952b33

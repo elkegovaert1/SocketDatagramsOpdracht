@@ -16,11 +16,9 @@ public class Server {
 
     public void execute() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Server on port: " + port);
 
             while (true) {
                 Socket socket = serverSocket.accept();
-                System.out.println("New user connected!");
 
                 UserThread newUser = new UserThread(socket,this);
                 userThreads.add(newUser);
@@ -32,8 +30,6 @@ public class Server {
     }
 
     public static void main(String[] args) throws Exception {
-        System.out.println("The chat server is running...");
-
         Server server = new Server(80);
         server.execute();
 
@@ -51,11 +47,10 @@ public class Server {
         usernames.add(userName);
     }
 
-    void removeUser(String userName, UserThread aUser) {
+    void removeUser(String userName, UserThread user) {
         boolean removed = usernames.remove(userName);
         if (removed) {
-            userThreads.remove(aUser);
-            System.out.println("The user " + userName + " left");
+            userThreads.remove(user);
         }
     }
 

@@ -15,9 +15,8 @@ public class WriteThread extends Thread {
         try {
             OutputStream output = socket.getOutputStream();
             writer = new PrintWriter(output, true);
-        } catch (IOException ex) {
-            System.out.println("Error getting output stream: " + ex.getMessage());
-            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -29,8 +28,10 @@ public class WriteThread extends Thread {
             String fromServer;
             String fromUser;
 
-            System.out.println("\nEnter your name: ");
-            String userName = stdIn.readLine();
+            //System.out.println("\nEnter your name: ");
+            //String userName = stdIn.readLine();
+            Controller con = new Controller();
+            String userName = con.getUsername();
             client.setUsername(userName);
             writer.println(userName);
 
@@ -43,11 +44,7 @@ public class WriteThread extends Thread {
 
             } while (!bericht.equals("bye"));
 
-            try {
-                socket.close();
-            } catch (IOException ex) {
-                System.out.println("Error writing to server: " + ex.getMessage());
-            }
+            socket.close();
 
         } catch (IOException e) {
             e.printStackTrace();

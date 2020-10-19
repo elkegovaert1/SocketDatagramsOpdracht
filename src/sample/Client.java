@@ -30,8 +30,7 @@ public class Client {
 
     }
 
-    public static void main(String [] args) throws IOException {
-        //List<String> berichten = new ArrayList<>();
+    public static void main(String [] args) {
 
         Client client = new Client();
         client.execute();
