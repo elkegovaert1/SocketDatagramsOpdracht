@@ -4,7 +4,6 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-//https://www.codejava.net/java-se/networking/how-to-create-a-chat-console-application-in-java-using-socket
 
 public class Server {
     private int port;
@@ -17,7 +16,7 @@ public class Server {
 
     public void execute() {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("Chat server luistert op " + port);
+            System.out.println("Server on port: " + port);
 
             while (true) {
                 Socket socket = serverSocket.accept();
@@ -56,7 +55,7 @@ public class Server {
         boolean removed = usernames.remove(userName);
         if (removed) {
             userThreads.remove(aUser);
-            System.out.println("The user " + userName + " quitted");
+            System.out.println("The user " + userName + " left");
         }
     }
 

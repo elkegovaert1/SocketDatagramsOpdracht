@@ -28,22 +28,10 @@ public class Client {
             System.exit(1);
         }
 
-        /*while ((fromServer = in.readLine()) != null) {
-            // lijst van berichten in strings
-            berichten.add(fromServer);
-            // update view
-
-            fromUser = stdIn.readLine();
-            if (fromUser != null) {
-                System.out.println("Client: " + fromUser);
-                out.println(fromUser);
-            }
-        }*/
-
     }
 
     public static void main(String [] args) throws IOException {
-        List<String> berichten = new ArrayList<>();
+        //List<String> berichten = new ArrayList<>();
 
         Client client = new Client();
         client.execute();

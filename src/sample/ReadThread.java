@@ -3,13 +3,6 @@ package sample;
 import java.io.*;
 import java.net.*;
 
-/**
- * This thread is responsible for reading server's input and printing it
- * to the console.
- * It runs in an infinite loop until the client disconnects from the server.
- *
- * @author www.codejava.net
- */
 public class ReadThread extends Thread {
     private BufferedReader reader;
     private Socket socket;
@@ -22,9 +15,8 @@ public class ReadThread extends Thread {
         try {
             InputStream input = socket.getInputStream();
             reader = new BufferedReader(new InputStreamReader(input));
-        } catch (IOException ex) {
-            System.out.println("Error getting input stream: " + ex.getMessage());
-            ex.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -38,9 +30,8 @@ public class ReadThread extends Thread {
                 if (client.getUsername() != null) {
                     System.out.print("[" + client.getUsername() + "]: ");
                 }
-            } catch (IOException ex) {
-                System.out.println("Error reading from server: " + ex.getMessage());
-                ex.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
                 break;
             }
         }
