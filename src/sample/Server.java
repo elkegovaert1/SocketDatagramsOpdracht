@@ -31,7 +31,9 @@ public class Server {
 
     public static void main(String[] args) throws Exception {
         Server server = new Server(80);
-        server.execute();
+        Controller.setServer(server);
+        server.execute();   
+        
 
     }
 
@@ -42,7 +44,11 @@ public class Server {
             }
         }
     }
-
+    void broadcastWithoutExclude(String message) {
+        for (UserThread user : userThreads) {
+            user.sendMessage(message);            
+        }
+    }
     void addUserName(String userName) {
         usernames.add(userName);
     }

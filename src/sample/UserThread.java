@@ -23,18 +23,21 @@ public class UserThread extends Thread {
             writer = new PrintWriter(output, true);
 
             printUsers();
+            
+            String userName = reader.readLine();
+            //if(controller.getUsername() != null) {
+                //userName = controller.getUsername();
+                server.addUserName(userName);
+                System.out.println(userName);
+                
+                String serverMessage = "New user connected: " + userName;
+                server.broadcast(serverMessage, this);
+            //}
 
-            //String userName = reader.readLine();
-            String userName = controller.getUsername();
-            server.addUserName(userName);
-
-            System.out.println(userName);
-
-            String serverMessage = "New user connected: " + userName;
-            server.broadcast(serverMessage, this);
+            
 
             String clientMessage;
-
+            //String serverMessage;
             do {
                 clientMessage = reader.readLine();
                 serverMessage = "[" + userName + "]: " + clientMessage;

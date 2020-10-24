@@ -31,9 +31,13 @@ public class WriteThread extends Thread {
             //System.out.println("\nEnter your name: ");
             //String userName = stdIn.readLine();
             Controller con = new Controller();
-            String userName = con.getUsername();
-            client.setUsername(userName);
-            writer.println(userName);
+            String userName = null;
+            if(con.getUsername() != null) {
+                userName = con.getUsername();
+                client.setUsername(userName);
+                writer.println(userName);
+            }
+            
 
             String bericht;
             do {

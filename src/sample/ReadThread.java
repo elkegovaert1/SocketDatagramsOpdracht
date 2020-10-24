@@ -7,10 +7,12 @@ public class ReadThread extends Thread {
     private BufferedReader reader;
     private Socket socket;
     private Client client;
+    //private int random;
 
     public ReadThread(Socket socket, Client client) {
         this.socket = socket;
         this.client = client;
+        //this.random = (int) (Math.random() * 1000);
 
         try {
             InputStream input = socket.getInputStream();
@@ -31,8 +33,8 @@ public class ReadThread extends Thread {
                     System.out.print("[" + client.getUsername() + "]: ");
                 }
             } catch (IOException e) {
-                e.printStackTrace();
-                break;
+                //e.printStackTrace();
+                //break;
             }
         }
     }

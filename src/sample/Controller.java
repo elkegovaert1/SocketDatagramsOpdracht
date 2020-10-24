@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 
 public class Controller {
+	
+
 
     // buttons
     @FXML
@@ -30,22 +32,29 @@ public class Controller {
     @FXML
     private TextField usernameInput;
 
-    Client client;
-    Server server;
+    static Client client;
+    static Server server;
 
     public void initialize() {}
 
     public void setUsername(ActionEvent event) {
         client = new Client();
+        client.setUsername(usernameInput.getText());
         client.execute();
     }
 
     public void verzendBericht(ActionEvent event) {
         System.out.println(bericht.getText());
+        server.broadcastWithoutExclude(bericht.getText());
     }
 
     public String getUsername() {
-        return usernameInput.getText();
+        return client.getUsername();
     }
-
+    public static void setClient(Client c) {
+    	client=c;
+    }
+    public static void setServer(Server s) {
+    	server = s;
+    }
 }
